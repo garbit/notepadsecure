@@ -1,0 +1,31 @@
+{
+  "name": "notepadsecure",
+  "version": "1.0.0",
+  "description": "Notepad secure is an encrypted note app that syncs with cloud services",
+  "main": "main.ts",
+  "scripts": {
+    "build": "tsc && gulp",
+    "watch": "tsc -w",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/garbit/notepadsecure.git"
+  },
+  "author": "Andrew Garbett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/garbit/notepadsecure/issues"
+  },
+  "homepage": "https://github.com/garbit/notepadsecure#readme",
+  "devDependencies": {
+    "electron": "^8.2.1",
+    "gulp": "^4.0.2",
+    "gulp-pug": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "electron-reload": "^1.5.0"
+  }
+}
