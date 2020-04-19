@@ -1,6 +1,14 @@
-html
+doctype html
+html(lang='en')
   head
+    meta(charset="UTF-8")
+    title Notepad Secure
     style
       include /css/main.css
   body
-    h1 Heading
+    #toolbar
+      button.toolbar-button(onclick="document.execCommand('bold', false, '');") B
+      button.toolbar-button(onclick="document.execCommand('italic', false, '');") I
+      button.toolbar-button(onclick="document.execCommand('underline', false, '');") U
+    #content.noselect(contentEditable="true", spellcheck="true")
+      h1 Heading
