@@ -1,4 +1,3 @@
-import 'bulma/css/bulma.css';
 import Vue from 'vue';
 import axios from 'axios';
 
