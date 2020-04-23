@@ -7,22 +7,35 @@
     #notes.column.is-3
       h1 Content selector
     #editor.column
-      note-editor(v-model="content")
-      pre
-        code(v-text="content")
+      .container
+        button.button(v-on:click="encryptData()") Encrypt
+        button.button(v-on:click="decryptData()") Decrypt
+        note-editor(v-model="content")
+        pre
+          code(v-text="content")
 </template>
 
 
 <script>
+  import CryptoMixin from './../mixins/cryptoMixin';
   import NoteEditor from './NoteEditor';
   export default {
     name: 'main-page',
     components: { NoteEditor },
+    mixins: [CryptoMixin],
     methods: {
+      encryptData() {
+        this.encryptedData = this.encrypt(this.content);
+        this.content = this.encryptedData.toString();
+      },
+      decryptData() {
+        this.content = this.decrypt(this.encryptedData).toString();
+      },
     },
     data() {
       return {
         content: '',
+        encryptedData: '',
       };
     },
   };
