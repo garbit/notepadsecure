@@ -1,6 +1,7 @@
 <template lang="pug">
-.simple-editor
-  .editor-node(ref="editorNode")
+.editor
+  #editor-container
+    .editor-node(ref="editorNode")
 </template>
 
 
@@ -36,6 +37,7 @@
               [{ direction: 'rtl' }],
             ],
           },
+          scrollingContainer: '#editor-container',
           theme: 'snow',
         },
       };
@@ -85,16 +87,24 @@
 </script>
 
 <style lang="scss">
-.simple-editor {
-  height: 100%;
+.editor {
+  position: relative;
 }
+#editor-container {
+  height: 100vh;
+  min-height: 100%;
+}
+
 .ql-toolbar.ql-snow {
   border-top: none;
   border-left: none;
   border-right: none;
   border-bottom: 1px solid #eee;
 }
+
 .ql-container.ql-snow {
   border: none;
+  height: 100%;
+  overflow-y: scroll;
 }
 </style>

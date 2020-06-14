@@ -5,14 +5,15 @@
       .container
         h1 Side menu
     #notes.column.is-3
-      h1 Content selector
-    #editor.column
-      .container
-        button.button(v-on:click="encryptData()") Encrypt
-        button.button(v-on:click="decryptData()") Decrypt
-        note-editor(v-model="content")
-        pre
-          code(v-text="content")
+      .row(v-for="n in notes")
+        h1 {{ n.title }}
+        p {{ n.body }}
+    #editor.column.is-7
+      //- button.button(v-on:click="encryptData()") Encrypt
+      //- button.button(v-on:click="decryptData()") Decrypt
+      note-editor(v-model="content")
+      pre
+        code(v-text="content")
 </template>
 
 
@@ -36,6 +37,98 @@
       return {
         content: '',
         encryptedData: '',
+        notes: [
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Latest book draft',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'New deal',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+          {
+            title: 'Credentials',
+            body: 'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.',
+            created: '2020-02-02 15:30',
+          },
+        ],
       };
     },
   };
@@ -44,11 +137,6 @@
 <style lang="scss">
 
 $nav-height: 80px;
-
-.wrapper {
-  height: 100vh;
-  margin-bottom: 0px;
-}
 
 #nav-bar {
   height: $nav-height;
@@ -60,17 +148,32 @@ $nav-height: 80px;
 
 #side-panel {
   border-right: 1px #eee solid;
+  height: 100%;
 }
 
 #notes {
   border-right: 1px #eee solid;
+  height: 100%;
+  overflow-x: scroll;
+
+  .row {
+    padding: 12px 0px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .row.active {
+    background: whitesmoke;
+  }
+
 }
 
 #editor {
   padding-bottom: 0px;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 .is-fullheight {
-  height: 80%;
+  height: 100%;
 }
 </style>
